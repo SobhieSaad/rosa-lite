@@ -1,0 +1,36 @@
+/*
+Theme Name: Rosa
+Description: Used to style the TinyMCE editor.
+*/
+
+$content-class: '.mce-content-body';
+$editor-style:  true;
+
+@import "vars";
+@import "_vendor/inuit.css/inuit";
+
+// TOOLS
+@import "tools/mixins";
+
+// BASE
+@import "base/core";
+@import "base/typography";
+@import "base/wp-align";
+
+@import "shortcodes/__shortcodes";
+@import "objects/beautons";
+@import "objects/heading";
+@import "objects/row";
+
+
+html {
+    padding: 24px;
+}
+
+body.mce-content-body {
+    max-width: 1104px;
+    margin: 0 auto;
+    font-family: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+}

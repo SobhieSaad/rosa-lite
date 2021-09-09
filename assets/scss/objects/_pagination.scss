@@ -1,0 +1,159 @@
+/*------------------------------------*\
+    $PAGINATIONS
+\*------------------------------------*/
+.pagination {
+	border: none;
+	text-align: center;
+	@include rem(margin, $_3u + $_u2 0);
+	padding-left: 0;
+	position: relative;
+
+	height: 38px;
+
+	&:after {
+		content: none;
+	}
+
+
+	a, span {
+		position: relative;
+		z-index: 2;
+
+		display: inline-block;
+
+		@include rem(padding, $_u4 $_u2);
+		border: 1px solid transparent;
+
+		@include font-size(16px);
+		text-transform: uppercase;
+
+		color: $light;
+		background: white;
+
+		transition: all .15s linear;
+	}
+
+	a:hover {
+		color: white;
+		background-color: $accent;
+		border-bottom: 1px solid transparent;
+	}
+
+	span.current {
+		color: $dark;
+	}
+
+	.inf_scroll & {
+		display: none;
+	}
+
+	.nav-links .page-numbers {
+		background-color: $dark;
+	}
+
+	.page-numbers.prev, .page-numbers.next {
+		color: #FFFFFF;
+	}
+
+	.nav-links .page-numbers.current {
+		color: #FFFFFF;
+	}
+
+	.nav-links .page-numbers.prev.disabled, .nav-links .page-numbers.next.disabled {
+		background-color: $gray;
+		color: $light;
+	}
+}
+
+.pagination--single {
+	border: none;
+	text-align: center;
+	@include rem(margin, 0 0 $_u 0);
+	padding-left: 0;
+	position: relative;
+
+	&:after {
+		content: none;
+	}
+
+
+	& > a, & > span {
+		position: relative;
+		z-index: 2;
+
+		display: inline-block;
+
+		@include rem(padding, $_u4 $_u2);
+		border: 1px solid transparent;
+
+		@include font-size(16px);
+		text-transform: uppercase;
+
+		color: $light;
+		background: white;
+
+		transition: all .15s linear;
+	}
+
+	a:hover {
+		color: white !important;
+		background-color: $accent;
+		border-bottom: 1px solid transparent;
+	}
+
+	& > span {
+		color: $dark;
+		border: 1px solid $borders;
+	}
+}
+
+.page-numbers.prev, .page-numbers.next {
+	position: absolute;
+	top: 0;
+
+	color: $dark;
+
+	&.disabled {
+		color: #F0F0F0;
+		pointer-events: none;
+	}
+}
+
+.page-numbers.prev {
+	left: 0;
+
+	&:before {
+		margin-right: $_u2;
+	}
+
+	// → displayed for rtl
+	&:before {
+		content: "\2192";
+	}
+
+	// ← removed for rtl
+	&:before {
+		/*rtl:remove*/
+		content: "\2190";
+	}
+}
+
+.page-numbers.next {
+	right: 0;
+
+	&:after {
+		margin-left: $_u2;
+	}
+
+	// ← displayed for rtl
+	&:after {
+		content: "\2190";
+	}
+
+	// → removed for rtl
+	&:after {
+		/*rtl:begin:remove*/
+		content: "\2192";
+		/*rtl:end:remove*/
+	}
+}
